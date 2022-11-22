@@ -1,119 +1,101 @@
 
 <p style="font-size:120%;" align="center">
-    <a href="#problema">Problema</a> -
+    <a href="#problema">Introdução</a> -
     <a href="#desenvolvimento">Desenvolvimento</a> -
     <a href="#resultados">Resultados</a> -
+    <a href="#aplicabilidade">Aplicabilidade</a> -
     <a href="#executar">Executar</a> -
     <a href="#contatos">Contatos</a>
 </p>
 
-# Problema
+# Introdução
 
-<p align="justify">Até o momento trabalhamos com três modelos de árvore, binária, avl e redblack. Chegou o momento de compararmos tais estruturas, observando seu comportamento sob diferentes volumes de dados. Para tanto, elabore arquivos que contenham 500 , 5000 , 50.000 , 500.000 entradas numéricas do tipo ponto flutuante. Para tanto, tente evitar repetições de valores em grande escala para que possamos ter uma estrutura profunda. Considere produzir os menores a partir dos maiores volumes de forma randômica. Feito a isso, vamos testar os seguintes processos: </p>
+<p align="justify">Uma rede mesh é composta de vários nós/roteadores, que passam a se comportar como uma única e grande rede, possibilitando que o cliente se conecte em qualquer um destes nós. Os nós têm a função de repetidores e cada nó está conectado a um ou mais dos outros nós. Desta maneira é possível transmitir mensagens de um nó a outro por diferentes caminhos. Já existem redes com cerca de 500 nós e mais de 400.000 usuários operando. </p>
 
-<p align="justify">Elabore um relatório detalhando a implementação dessas estruturas, funcionamento da aplicação, exemplo de resultado, modo de compilação e conclusões. Considere essa última seção como uma discussão de quando adotar cada estrutura acima citada e o por quê de tal escolha. Para toda essa discussão, apresentar gráficos que demonstrem os resultados obtidos durante o processo de análise.  </p>
+<p align="justify">Em uma rede Wi-Fi tradicional, seu telefone ou laptop é conectado a um único roteador e toda a comunicação passa por esse único roteador. Quanto mais longe você estiver do roteador, mais fraco será o sinal. Itens como paredes, móveis e outras obstruções podem afetar a distribuição de sinais sem fio em sua casa. Já na rede mesh, você tem vários pontos de conectividade em sua casa para nunca estar longe de um.</p>
+
+<p align="justify"> Em uma rede mesh, se um ponto cair, a comunicação é simplesmente redirecionada para outro ponto. Porém, se o seu roteador ou ponto principal ficar offline (aquele conectado ao seu modem), toda a sua rede também ficará. Como todos os pontos estão conectados entre si, os dados podem seguir vários caminhos até seu destino⁠ e sempre escolherão a melhor rota do ponto A ao ponto B.</p>
+
+<p align="justify"> Como dito anteriormente, a rede mesh procura automaticamente a melhor rota de um nó até a internet, podemos relacionar esse problema com a utilização de um grafo simples com suas arestas tendo seus pesos relacionados com a transmissão wireless entre os nós/roteadores. </p>
  
 
 # Desenvolvimento
-## O problema foi desenvolvido da seguinte maneira:
-### Implementação das estruturas:
-Foi implementado as seguintes estruturas no trabalho:
 
-Árvores:
-- Árvore binária de busca
-- Árvore AVL
-- Árvore rubro-negra
+<p align="justify"> Já decidido o tipo de grafo a se utilizar, é necessário pensar sobre qual será o algoritmo utilizado para encontrar a melhor rota entre um nó A até o B. Com isso foi escolhido o Algoritmo de Dijkstra. </p>
 
-> Para a implementação das árvores foi utilizado as estruturas prontas fornecidas pelo professor e alterado alguns trechos de código para melhor se adequar ao cenário proposto. Como por exemplo: 
+## Dijkstra
 
-*Tree.cpp*
-```cpp
-void removeTree(Tree **t, Record r)
-{
-    ...
-    deleted_elements.push_back((*t)->reg.key);
-    ...
-}
+<p align="justify">O Algoritmo de Dijkstra basicamente começa no nó que você escolhe (o nó de origem) e analisa o grafo para encontrar o caminho de menor custo entre esse nó e todos os outros nós do grafo. Uma vez que o algoritmo encontrou o caminho de menor custo entre o nó de origem e outro nó, esse nó é marcado como "visitado" e adicionado ao caminho.</p>
+
+<p align="justify"> O processo continua até que todos os nós do grafo tenham sido adicionados ao caminho. Desta forma, temos um caminho que conecta o nó de origem a todos os outros nós seguindo o caminho de menor custo possível para chegar a cada nó.</p>
+
+## Código 
+<p align="justify">
+A construção do grafo foi feita por meio da classe Graph, onde é utilizado um dictionary para a implementaçao do grafo, onde as chaves do dictionary correspondem aos nós e seus valores correspondem aos dictionarys que registram os pesos a outros nós no gráfico.</p>
+
+>Exemplo: Nó = C ;
+>Valor = {'E': 0.04, 'D': 0.04, 'A': 0.5, 'B': 0.2}
+
+<p align="justify">Ou seja, o nó C está conectado com o nó E com uma aresta de peso 0.04,também com o nó D com uma aresta de peso 0.04 e assim por diante...</p>
+
+<p align="justify">A sua construção no main é bastante simples, primeiro é definido uma lista de nós que serão atribuidos para cada chave do dict, por fim é definido o peso das arestas atribuindo o valor entre duas chaves(nós) em um dict e depois criando o objeto da classe.</p>
+
+```py
+class Graph(object):
+def print_graph():
+
+#main()
+nodes = ["A", "B", "C", "D", "E", "Sink"]
+
+init_graph = {}
+for node in nodes:
+    init_graph[node] = {}
+
+init_graph["A"]["B"] = "edge_weight"
+graph = Graph(nodes, init_graph)
 ```
-> Para cada vez que é chamado a função de remoção e é verificado que o elemento está dentro da árvore, a key {float} é armazenada dentro do vector para retornar ao usuário ao fim do programa.
+<p align="justify"> Para o Dijkstra foi implementado uma função seguindo a teoria anteriormente mencionada, e tendo como retorno da função dois dictionarys, um com os nós anteriores e o outro com o melhor caminho com os valores das arestas somado. Por fim é executado a função para printar o resultado onde vai ser mostrado ao usuario o valor da soma das arestas percorridas e o caminho com os nós em sequencia. </p>
 
-Contêineres Associativos:
-- Map
-- Unordered_map
+>Exemplo: 
 
-Contêineres de Sequência:
-- Vector
+>Foi encontrado o seguinte melhor caminho com valor de 0.4  (A -> B -> C -> D -> Sink)
 
-> Todas essas estruturas já estão implementadas como bibliotecas no C++, basta chamá-las.
- ```cpp
-#include <vector>
-#include <map>
-#include <unordered_map>
-```
-### Inserção dos dados:
+```py
+def dijkstra_algorithm(graph, start_node):
+def print_result(previous_nodes, shortest_path, start_node, target_node):
 
-Foi criado os arquivos **tools.hpp** e **tools.cpp** para armazenar as funções que irão pegar os dados armazenados nos arquivos **.txt** e irão armazena-los nas estruturas de dados; primeiro inserindo e depois manipulando os dados (pesquisa e remoção).
+#main()
 
->Obs: todas as funções tem como parâmetro o nome do arquivo para diferenciar o arquivo com os numeros a serem inseridos(*data.txt*) com os numeros de entrada para a pesquisa(*search.txt*).
-
-```cpp
-Tree *InsertDataBinaryT(string filename, int qtd);
-AvlTree *InsertDataAvlT(string filename, int qtd);
-RBTree InsertDataRbT(string filename, int qtd);
-vector<float> InsertDataVector(string filename, int qtd);
-map<float, int> InsertDataMap(string filename);
-unordered_map<float, int> InsertDataUnordMap(string filename);
-
-void searchDataBinaryT(string filename, Tree *raiz);
-void searchDataAvlT(string filename, AvlTree *Avlraiz);
-void searchDataRB(string filename, RBTree rb);
-void searchDataMap(string filename, map<float, int> datamap);
-void searchDataUnordMap(string filename, unordered_map<float, int> unordmap);
-
-void RemoveDataBinaryT(string filename, Tree *raiz);
-void RemoveDataAvlT(string filename, AvlTree *Avlraiz);
+previous_nodes, shortest_path = dijkstra_algorithm(graph=graph, start_node="A")
+print_result(previous_nodes, shortest_path,start_node="A", target_node="Sink")
 ```
 
-### Medição do tempo:
-Para medir o tempo gasto com pesquisa, inserção e remoção dos elementos nas estruturas foi criado os arquivos **time.hpp** e **time.cpp** que contém as funções que irão medir o tempo de cada ação separadamente.
+## Equação para definir o peso da aresta
 
-```cpp
-void resetTimes();
-void measure_timeInsert(int qtd);
-void measure_timeSearch();
-void measure_timeRemove();
-void measure_time();
+<p align="justify"> Por fim é utilizado uma função para definir a equação que irá definir o peso da aresta, tal equação irá levar em consideração o trafego da rede e sua porcentagem de uso como também a potencia do sinal que influenciará na largura de banda (Mbps).</p>
+
+O valor da potencia do sinal é classificado de 1 a 3:
++ **1** = Sinal Ruim :: *Larg.Banda* = 10 Mbps
++ **2** = Sinal Bom :: *Larg.Banda* = 25 Mbps
++ **3** = Sinal Otimo :: *Larg.Banda* = 50 Mbps
+
+
+img da equacao
+
+```py
+def edge_weight(max_fluxo, uso, potencia_sinal):
 ```
-Afim de obter um resultado de tempo mais preciso foi utilizado a biblioteca **Chrono**. Sendo uma biblioteca projetada para lidar com o fato de que temporizadores e relógios podem ser diferentes em sistemas diferentes e, portanto, melhorar ao longo do tempo em termos de precisão.
 
-**Clock:** Consiste em um ponto de partida e uma taxa de ticks.
-
-O tipo de clock escolhido foi o **high_resolution_clock** por fornece o menor período de ticks possível.
-
-Exemplo: *time.cpp*
-```cpp
-void measure_timeInsert(int qtd){
-    auto start1 = chrono::high_resolution_clock::now();
-    Tree *raiz = CreateTree();
-    raiz = InsertDataBinaryT("data.txt", qtd);
-    auto end1 = chrono::high_resolution_clock::now();
-    binaryTime = chrono::duration_cast<chrono::nanoseconds>(end1 - start1).count();
-}
-```
-Por fim foi criado a função **core** do projeto, onde é medido o tempo de cada estrutura para cada ação (inserção, remoção e pesquisa) e retornado ao usuário os tempos organizados na forma sugerida pelo **problema**.
-```cpp
-void measure_time()
-{
-    void measure_timeInsert(int qtd); //500;5.000;50.000;500.000
-    void measure_timeSearch();
-    void measure_timeRemove();
-}
-```
 # Resultados
-### A saida esperada para o programa:
-saida.jpg
+### Primeira Situação: Arvore Geradora Mínima
+
+### Segunda Situação: Potencia do Sinal
+
+### Terceira Situação: Trafego de rede
 
 
+# Aplicabilidade
+como aplicar o mesmo codigo para diferentes problemas
 
 # Executar
 * Como executar:

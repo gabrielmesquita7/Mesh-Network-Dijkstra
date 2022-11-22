@@ -82,37 +82,51 @@ def print_result(previous_nodes, shortest_path, start_node, target_node):
 
     path.append(start_node)
 
-    print("We found the following best path with a value of {}.".format(
+    print("Foi encontrado o seguinte melhor caminho com valor de {}.".format(
         shortest_path[target_node]))
     print(" -> ".join(reversed(path)))
 
 
+def print_graph():
+    for node in nodes:
+        print("Nó" + "::" + node)
+        print(init_graph[node])
+
+
+def edge_weight(max_fluxo, uso, potencia_sinal):
+    match potencia_sinal:
+        case 1:
+            bandwidth = 10
+            return ((max_fluxo * uso) / bandwidth)
+        case 2:
+            bandwidth = 25
+            return ((max_fluxo * uso) / bandwidth)
+        case 3:
+            bandwidth = 50
+            return ((max_fluxo * uso) / bandwidth)
+
+
 # Criando o grafo
-nodes = ["Rey", "Oslo", "Moscow", "London",
-         "Rome", "Berlin", "Belgrade", "Athens"]
+nodes = ["A", "B", "C", "D", "E", "Sink"]
 
 init_graph = {}
 for node in nodes:
     init_graph[node] = {}
 
-init_graph["Rey"]["Oslo"] = 5
-init_graph["Rey"]["London"] = 4
-init_graph["Oslo"]["Berlin"] = 1
-init_graph["Oslo"]["Moscow"] = 3
-init_graph["Moscow"]["Belgrade"] = 5
-init_graph["Moscow"]["Athens"] = 4
-init_graph["Athens"]["Belgrade"] = 1
-init_graph["Rome"]["Berlin"] = 2
-init_graph["Rome"]["Athens"] = 2
-
+# 1000mb trafego ; 20% sendo usado; 2 de pontencia de sinal
+init_graph["A"]["B"] = edge_weight(1000, 0.2, 2)
+init_graph["A"]["C"] = edge_weight(1000, 0.5, 1)
+init_graph["B"]["C"] = edge_weight(1000, 0.2, 1)
+init_graph["C"]["E"] = edge_weight(1000, 0.2, 3)
+init_graph["C"]["D"] = edge_weight(1000, 0.2, 3)
+init_graph["D"]["Sink"] = edge_weight(1000, 0.2, 2)
+init_graph["E"]["Sink"] = edge_weight(1000, 0.2, 1)
 
 graph = Graph(nodes, init_graph)
+print_graph()
 
 previous_nodes, shortest_path = dijkstra_algorithm(
-    graph=graph, start_node="Athens")
+    graph=graph, start_node="A")
+print("\n")
 print_result(previous_nodes, shortest_path,
-             start_node="Athens", target_node="London")
-
-for node in nodes:
-    print(node + "::")
-    print(init_graph[node])
+             start_node="A", target_node="Sink")
