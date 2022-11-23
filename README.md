@@ -19,7 +19,7 @@
 <p align="justify">Em uma rede Wi-Fi tradicional, seu telefone ou laptop é conectado a um único roteador e toda a comunicação passa por esse único roteador. Quanto mais longe você estiver do roteador, mais fraco será o sinal. Itens como paredes, móveis e outras obstruções podem afetar a distribuição de sinais sem fio em sua casa. Já na rede mesh, você tem vários pontos de conectividade em sua casa para nunca estar longe de um.</p>
 
 <p align="center">
-    <img src="https://www.researchgate.net/publication/257877841/figure/fig2/AS:309601133187073@1450826070195/Wireless-mesh-network-architecture-with-mesh-gateway-mesh-routers-and-mesh-clients.png">
+    <img src="/imgs/mesh.png">
 </p>
 
 <p align="justify"> Em uma rede mesh, se um ponto cair, a comunicação é simplesmente redirecionada para outro ponto. Porém, se o seu roteador ou ponto principal ficar offline (aquele conectado ao seu modem), toda a sua rede também ficará. Como todos os pontos estão conectados entre si, os dados podem seguir vários caminhos até seu destino⁠ e sempre escolherão a melhor rota do ponto A ao ponto B.</p>
