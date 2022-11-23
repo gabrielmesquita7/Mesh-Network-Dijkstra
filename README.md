@@ -3,7 +3,6 @@
     <a href="#problema">Introdução</a> -
     <a href="#desenvolvimento">Desenvolvimento</a> -
     <a href="#resultados">Resultados</a> -
-    <a href="#aplicabilidade">Aplicabilidade</a> -
     <a href="#executar">Executar</a> -
     <a href="#contatos">Contatos</a>
 </p>
@@ -177,15 +176,20 @@ Utilizando como exemplo a ultima situação a saida esperada do programa é a se
     <img src="/imgs/result.png">
 </p>
 
-# Aplicabilidade
-como aplicar o mesmo codigo para diferentes problemas
+### Conclusão 
+
+<p align="justify"> Levando em consideração os experimentos anteriores, podemos concluir que em uma primeira situação onde no local não haver nenhum trafego significativo oque irá definir o caminho mínimo será a potência do sinal, já em uma situação onde as linhas de trafego tiverem sendo bastante utilizadas seja pela quantidade de usuarios nela ou pela quantidade de dados sendo trafegados, o programa opta pelas redes com menos tráfego já que tanto na equação quanto no ambiente das redes mesh é mais vantajoso percorrer uma maior distancia para evitar as redes de alto tráfego, sendo assim o Tráfego de rede tem um peso maior na escolha do caminho.</p>
+
+>Obs: A variavel "Trafego de rede" é calculada pela multiplicação entre o máximo de trafego (Ex: 1000 Mb) e sua porcentagem de uso (Ex: 50% ou 0,5)
+
+
 
 # Executar
 * Como executar:
 
 | Comando                |  Função                                                                                           |                     
 | -----------------------| ------------------------------------------------------------------------------------------------- |
-|  `Spython3 main.py`          | Executa o arquivo python       |
+|  `python3 main.py`          | Executa o arquivo python       |
 
 
 # Contatos
