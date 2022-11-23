@@ -1,13 +1,17 @@
 
 <p style="font-size:120%;" align="center">
-    <a href="#problema">Introdução</a> -
+    <a href="#introducao">Introdução</a> -
     <a href="#desenvolvimento">Desenvolvimento</a> -
+    <a href="#codigo">Código</a> -
     <a href="#resultados">Resultados</a> -
     <a href="#executar">Executar</a> -
     <a href="#contatos">Contatos</a>
 </p>
+<p align="center">
+<a href="https://gabrielmesquita7.github.io/Mesh-Network-Dijkstra/html/index.html">gabrielmesquita7.github.io/Mesh-Network-Dijkstra</a>
+</p>
 
-# Introdução
+# Introducao
 
 <p align="justify">Uma rede mesh é composta de vários nós/roteadores, que passam a se comportar como uma única e grande rede, possibilitando que o cliente se conecte em qualquer um destes nós. Os nós têm a função de repetidores e cada nó está conectado a um ou mais dos outros nós. Desta maneira é possível transmitir mensagens de um nó a outro por diferentes caminhos. Já existem redes com cerca de 500 nós e mais de 400.000 usuários operando. </p>
 
@@ -46,7 +50,12 @@
 </p>
 
 
-## Código 
+# Codigo 
+
+**Afim de deixar o código devidamente documentado, foi utilizado o Sphinx que é um gerador automático de documentação escrito e usado pela comunidade Python.**
+Veja em [Github Pages](https://gabrielmesquita7.github.io/Mesh-Network-Dijkstra/html/index.html)
+* [gabrielmesquita7.github.io/Mesh-Network-Dijkstra](https://gabrielmesquita7.github.io/Mesh-Network-Dijkstra/html/index.html)
+
 <p align="justify">
 A construção do grafo foi feita por meio da classe Graph, onde é utilizado um dictionary para a implementaçao do grafo, onde as chaves do dictionary correspondem aos nós e seus valores correspondem aos dictionarys que registram os pesos a outros nós no gráfico.</p>
 
