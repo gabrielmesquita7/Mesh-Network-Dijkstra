@@ -12,9 +12,22 @@
 
 <p align="justify">Uma rede mesh é composta de vários nós/roteadores, que passam a se comportar como uma única e grande rede, possibilitando que o cliente se conecte em qualquer um destes nós. Os nós têm a função de repetidores e cada nó está conectado a um ou mais dos outros nós. Desta maneira é possível transmitir mensagens de um nó a outro por diferentes caminhos. Já existem redes com cerca de 500 nós e mais de 400.000 usuários operando. </p>
 
+<p align="center">
+    <img src="https://cdn.ttgtmedia.com/rms/onlineImages/networking-wireless_mesh_mobile.jpg">
+</p>
+
 <p align="justify">Em uma rede Wi-Fi tradicional, seu telefone ou laptop é conectado a um único roteador e toda a comunicação passa por esse único roteador. Quanto mais longe você estiver do roteador, mais fraco será o sinal. Itens como paredes, móveis e outras obstruções podem afetar a distribuição de sinais sem fio em sua casa. Já na rede mesh, você tem vários pontos de conectividade em sua casa para nunca estar longe de um.</p>
 
+<p align="center">
+    <img src="https://www.researchgate.net/publication/257877841/figure/fig2/AS:309601133187073@1450826070195/Wireless-mesh-network-architecture-with-mesh-gateway-mesh-routers-and-mesh-clients.png">
+</p>
+
 <p align="justify"> Em uma rede mesh, se um ponto cair, a comunicação é simplesmente redirecionada para outro ponto. Porém, se o seu roteador ou ponto principal ficar offline (aquele conectado ao seu modem), toda a sua rede também ficará. Como todos os pontos estão conectados entre si, os dados podem seguir vários caminhos até seu destino⁠ e sempre escolherão a melhor rota do ponto A ao ponto B.</p>
+
+
+<p align="center">
+    <img src="https://silvernet.com/wp-content/uploads/2021/03/solutions-wireless-mesh-networks-2.gif">
+</p>
 
 <p align="justify"> Como dito anteriormente, a rede mesh procura automaticamente a melhor rota de um nó até a internet, podemos relacionar esse problema com a utilização de um grafo simples com suas arestas tendo seus pesos relacionados com a transmissão wireless entre os nós/roteadores. </p>
  
@@ -28,6 +41,11 @@
 <p align="justify">O Algoritmo de Dijkstra basicamente começa no nó que você escolhe (o nó de origem) e analisa o grafo para encontrar o caminho de menor custo entre esse nó e todos os outros nós do grafo. Uma vez que o algoritmo encontrou o caminho de menor custo entre o nó de origem e outro nó, esse nó é marcado como "visitado" e adicionado ao caminho.</p>
 
 <p align="justify"> O processo continua até que todos os nós do grafo tenham sido adicionados ao caminho. Desta forma, temos um caminho que conecta o nó de origem a todos os outros nós seguindo o caminho de menor custo possível para chegar a cada nó.</p>
+
+<p align="center">
+    <img src="/imgs/Dijkstra.gif">
+</p>
+
 
 ## Código 
 <p align="justify">
@@ -79,8 +97,10 @@ O valor da potencia do sinal é classificado de 1 a 3:
 + **2** = Sinal Bom :: *Larg.Banda* = 25 Mbps
 + **3** = Sinal Otimo :: *Larg.Banda* = 50 Mbps
 
+<p align="center">
+    <img src="/imgs/equation.png">
+</p>
 
-img da equacao
 
 ```py
 def edge_weight(max_fluxo, uso, potencia_sinal):
@@ -102,7 +122,7 @@ como aplicar o mesmo codigo para diferentes problemas
 
 | Comando                |  Função                                                                                           |                     
 | -----------------------| ------------------------------------------------------------------------------------------------- |
-|  `python3 main.py`          | Executa o arquivo python       |
+|  `Spython3 main.py`          | Executa o arquivo python       |
 
 
 # Contatos
