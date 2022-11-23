@@ -107,12 +107,75 @@ def edge_weight(max_fluxo, uso, potencia_sinal):
 ```
 
 # Resultados
+
+<p align="justify"> Para simular a efetividade do programa em encontrar o melhor caminho para a rede mesh, será testado um ambiente onde haverá 8 roteadores/nós onde um deles será o Gateway(Sink), ou seja, estará conectado diretamente na internet via cabo.</p>
+
+<p align="justify"> Na seguinte representação foi escolhido os seguintes nós da rede mesh: A, B, C, D, E, F, G (Gateway/Sink) e H. Será testado diferentes situações para determinar a escolha do melhor caminho.</p>
+
+<p align="center">
+    <img src="/imgs/planta.jpg">
+</p>
+
 ### Primeira Situação: Arvore Geradora Mínima
+
+<p align="justify"> Primeiramente é testado com o mesmo peso para todas as arestas, ou seja, é imaginado que em condições iguais para todos os roteadores seria seguido o(s) seguinte(s) caminho(s) em uma situação onde o cliente esteja mais perto do roteador A.</p>
+
+<p align="center">
+    <img src="/imgs/planta01.jpg">
+</p>
+
+**Resultado:**
+```terminal
+A -> B -> G
+```
+
+<p align="justify"> Agora se o cliente estivesse mais perto do roteador C haveria o(s) seguinte(s) caminho(s):</p>
+
+**Resultado:**
+```terminal
+C -> B -> G
+    ou
+C -> H -> G
+```
 
 ### Segunda Situação: Potencia do Sinal
 
+<p align="justify"> Agora é levado em consideração a potencia de sinal de cada roteador baseado em suas distancias de um ao outro, ou seja, se o roteador A está longe ou tem bastante paredes bloqueando o sinal em relação ao roteador D, a potencia de sinal tende a ser menor, logo sua largura de banda terá uma velocidade menor.</p>
+
+<p align="justify"> Na seguinte situação, o cliente está perto do roteador D e cada potencia de sinal esta numerada.</p>
+
+<p align="center">
+    <img src="/imgs/planta02.jpg">
+</p>
+
+> Obs: Como nesse exemplo somente será observado a influência da potência do sinal no calculo do melhor caminho, todos terão a mesmo trafego de rede.
+
+**Resultado:**
+```terminal
+Foi encontrado o seguinte melhor caminho com valor de 16.0
+D -> E -> F -> G
+```
+
 ### Terceira Situação: Trafego de rede
 
+<p align="justify"> Na ultimo ambiente, será levado em consideração tanto a potencia do sinal como o trafego de rede, sendo assim como queremos evidenciar o impacto do trafego será utilizado o exemplo anterior de forma a aumentar o trafego no caminho menor encontrado anteriormente e seus adjacentes para verificar seu novo comportamento.</p>
+
+<p align="center">
+    <img src="/imgs/planta03.jpg">
+</p>
+
+**Resultado:**
+```terminal
+Foi encontrado o seguinte melhor caminho com valor de 40.0.
+D -> B -> C -> H -> G
+```
+
+### Saida Esperada
+Utilizando como exemplo a ultima situação a saida esperada do programa é a seguinte: 
+
+<p align="center">
+    <img src="/imgs/result.png">
+</p>
 
 # Aplicabilidade
 como aplicar o mesmo codigo para diferentes problemas

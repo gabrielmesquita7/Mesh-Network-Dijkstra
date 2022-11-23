@@ -107,7 +107,7 @@ def edge_weight(max_fluxo, uso, potencia_sinal):
 
 
 # Criando o grafo
-nodes = ["A", "B", "C", "D", "E", "Sink"]
+nodes = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
 init_graph = {}
 for node in nodes:
@@ -115,18 +115,31 @@ for node in nodes:
 
 # 1000mb trafego ; 20% sendo usado; 2 de pontencia de sinal
 init_graph["A"]["B"] = edge_weight(1000, 0.2, 2)
-init_graph["A"]["C"] = edge_weight(1000, 0.5, 1)
-init_graph["B"]["C"] = edge_weight(1000, 0.2, 1)
-init_graph["C"]["E"] = edge_weight(1000, 0.2, 3)
-init_graph["C"]["D"] = edge_weight(1000, 0.2, 3)
-init_graph["D"]["Sink"] = edge_weight(1000, 0.2, 2)
-init_graph["E"]["Sink"] = edge_weight(1000, 0.2, 1)
+init_graph["A"]["C"] = edge_weight(1000, 0.2, 2)
+init_graph["A"]["D"] = edge_weight(1000, 0.2, 1)
+
+init_graph["D"]["B"] = edge_weight(1000, 0.2, 1)
+init_graph["D"]["E"] = edge_weight(1000, 0.8, 3)
+
+init_graph["C"]["B"] = edge_weight(1000, 0.2, 3)
+init_graph["C"]["H"] = edge_weight(1000, 0.2, 2)
+
+init_graph["E"]["B"] = edge_weight(1000, 0.2, 1)
+init_graph["E"]["F"] = edge_weight(1000, 0.8, 2)
+
+init_graph["F"]["G"] = edge_weight(1000, 0.8, 3)
+init_graph["F"]["B"] = edge_weight(1000, 0.2, 2)
+
+init_graph["H"]["G"] = edge_weight(1000, 0.2, 2)
+init_graph["H"]["B"] = edge_weight(1000, 0.8, 2)
+
+init_graph["B"]["G"] = edge_weight(1000, 0.8, 2)
 
 graph = Graph(nodes, init_graph)
 print_graph()
 
 previous_nodes, shortest_path = dijkstra_algorithm(
-    graph=graph, start_node="A")
+    graph=graph, start_node="D")
 print("\n")
 print_result(previous_nodes, shortest_path,
-             start_node="A", target_node="Sink")
+             start_node="D", target_node="G")
