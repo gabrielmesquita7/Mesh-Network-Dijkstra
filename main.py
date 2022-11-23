@@ -2,11 +2,23 @@ import sys
 
 
 class Graph(object):
+    """Um grafo representado como objeto"""
+
     def __init__(self, nodes, init_graph):
+        """Inicia a classe graph com os nós
+
+        :param init_graph: dict contendo as arestas do nó que conectam a outros nós
+        :param nodes: lista de nós(vertices) do grafo
+        """
         self.nodes = nodes
         self.graph = self.construct_graph(nodes, init_graph)
 
     def construct_graph(self, nodes, init_graph):
+        """Gera o grafo final
+
+        :return: class Graph(k,v): grafo final
+        k = list[str], v = dict
+        """
         graph = {}
         for node in nodes:
             graph[node] = {}
@@ -21,11 +33,18 @@ class Graph(object):
         return graph
 
     def get_nodes(self):
-        "retorna os nos de um grafo"
+        """Retorna os nos de um grafo
+
+        :return: list[str]
+        """
         return self.nodes
 
     def get_outgoing_edges(self, node):
-        "retorna os vizinhos de um no"
+        """Retorna os vizinhos de um no, ou seja os nós adjacentes
+
+        :param nodes: list[str]
+        :return: list[str] nós adjacentes
+        """
         connections = []
         for out_node in self.nodes:
             if self.graph[node].get(out_node, False) != False:
@@ -33,11 +52,26 @@ class Graph(object):
         return connections
 
     def value(self, node1, node2):
-        "retorna o valor de uma aresta que liga dois nos"
+        """Retorna o valor de uma aresta que liga dois nos
+
+        :param node1: (str)
+        :param node2: (str)
+        :return: (float) valor da aresta que liga os dois nós
+        """
         return self.graph[node1][node2]
 
 
 def dijkstra_algorithm(graph, start_node):
+    """Implementação do Dijkstra. Primeiro o algoritmo começa visitar os nós, o codigo abaixo instrui 
+    o algoritmo a encontrar o nó com o valor mais baixo. Feito isso, o algoritmo visita todos os 
+    vizinhos do nó que ainda não foram visitados. Se o novo caminho para o vizinho for melhor que o melhor 
+    caminho atual, o algoritmo faz ajustes nos dicionários shortest_path e previous_nodes. 
+
+    :param graph: (Graph)
+    :param start_node: (str)
+    :return: (dict) previous_nodes = armazenará a trajetória do caminho atual mais conhecido para cada nó
+    :return: (dict) shortest_path = armazenará o custo conhecido de visitar cada vértice a partir do start_node, o custo vai acumulando a medida que avança no grafo. 
+    """
     unvisited_nodes = list(graph.get_nodes())
 
     shortest_path = {}
@@ -73,6 +107,14 @@ def dijkstra_algorithm(graph, start_node):
 
 
 def print_result(previous_nodes, shortest_path, start_node, target_node):
+    """Receberá dois dicts retornados pela função dijkstra, bem como os nomes dos nós inicial e destino. \
+        A função usará os dois dicts para encontrar o melhor caminho e calcular a pontuação total do caminho.
+
+    :param previous_nodes: (dict)
+    :param shortest_path: (dict)
+    :param start_node: (str)
+    :param target_node: (str)
+    """
     path = []
     node = target_node
 
@@ -88,12 +130,25 @@ def print_result(previous_nodes, shortest_path, start_node, target_node):
 
 
 def print_graph():
+    """Imprimi o grafo indicando cada nó com sua respectiva dict com suas ligações a outros nós \
+
+    Exemplo: Nó::H {'G': 8.0, 'B': 32.0, 'C': 8.0}
+    """
     for node in nodes:
         print("Nó" + "::" + node)
         print(init_graph[node])
 
 
 def edge_weight(max_fluxo, uso, potencia_sinal):
+    """Função para definir a equação que irá definir o peso da aresta, tal equação irá levar \
+    em consideração o trafego da rede e sua porcentagem de uso como também a potencia do sinal que \
+    influenciará na largura de banda (Mbps).
+
+    :param max_fluxo: (float)
+    :param uso: (float)
+    :param potencia_sinal: (float)
+    :return: (float) peso final = ((max_fluxo * uso) / bandwidth)
+    """
     match potencia_sinal:
         case 1:
             bandwidth = 10

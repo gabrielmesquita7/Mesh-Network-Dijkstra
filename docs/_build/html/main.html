@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>main module &mdash; documentação Mesh Network Dijkstra </title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Buscar" href="search.html" />
+    <link rel="prev" title="Mesh-Network-Dijkstra" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mesh Network Dijkstra
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Mesh-Network-Dijkstra</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">main module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Menu de navegação móvel" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mesh Network Dijkstra</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Navegação da página">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Mesh-Network-Dijkstra</a></li>
+      <li class="breadcrumb-item active">main module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/main.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-main">
+<span id="main-module"></span><h1>main module<a class="headerlink" href="#module-main" title="Link permanente para este título"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="main.Graph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.Graph" title="Link permanente para esta definição"></a></dt>
+<dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Um grafo representado como objeto</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="main.Graph.construct_graph">
+<span class="sig-name descname"><span class="pre">construct_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.Graph.construct_graph" title="Link permanente para esta definição"></a></dt>
+<dd><p>Gera o grafo final</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>class Graph(k,v): grafo final</p>
+</dd>
+</dl>
+<p>k = list[str], v = dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.Graph.get_nodes">
+<span class="sig-name descname"><span class="pre">get_nodes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.Graph.get_nodes" title="Link permanente para esta definição"></a></dt>
+<dd><p>Retorna os nos de um grafo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.Graph.get_outgoing_edges">
+<span class="sig-name descname"><span class="pre">get_outgoing_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.Graph.get_outgoing_edges" title="Link permanente para esta definição"></a></dt>
+<dd><p>Retorna os vizinhos de um no, ou seja os nós adjacentes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>nodes</strong> – list[str]</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>list[str] nós adjacentes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main.Graph.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.Graph.value" title="Link permanente para esta definição"></a></dt>
+<dd><p>Retorna o valor de uma aresta que liga dois nos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node1</strong> – (str)</p></li>
+<li><p><strong>node2</strong> – (str)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>(float) valor da aresta que liga os dois nós</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.dijkstra_algorithm">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">dijkstra_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.dijkstra_algorithm" title="Link permanente para esta definição"></a></dt>
+<dd><p>Implementação do Dijkstra. Primeiro o algoritmo começa visitar os nós, o codigo abaixo instrui 
+o algoritmo a encontrar o nó com o valor mais baixo. Feito isso, o algoritmo visita todos os 
+vizinhos do nó que ainda não foram visitados. Se o novo caminho para o vizinho for melhor que o melhor 
+caminho atual, o algoritmo faz ajustes nos dicionários shortest_path e previous_nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> – (Graph)</p></li>
+<li><p><strong>start_node</strong> – (str)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>(dict) previous_nodes = armazenará a trajetória do caminho atual mais conhecido para cada nó</p>
+</dd>
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>(dict) shortest_path = armazenará o custo conhecido de visitar cada vértice a partir do start_node, o custo vai acumulando a medida que avança no grafo.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.edge_weight">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">edge_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_fluxo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uso</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potencia_sinal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.edge_weight" title="Link permanente para esta definição"></a></dt>
+<dd><p>Função para definir a equação que irá definir o peso da aresta, tal equação irá levar     em consideração o trafego da rede e sua porcentagem de uso como também a potencia do sinal que     influenciará na largura de banda (Mbps).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_fluxo</strong> – (float)</p></li>
+<li><p><strong>uso</strong> – (float)</p></li>
+<li><p><strong>potencia_sinal</strong> – (float)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>(float) peso final = ((max_fluxo * uso) / bandwidth)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.print_graph">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">print_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.print_graph" title="Link permanente para esta definição"></a></dt>
+<dd><p>Imprimi o grafo indicando cada nó com sua respectiva dict com suas ligações a outros nós 
+Exemplo: Nó::H {‘G’: 8.0, ‘B’: 32.0, ‘C’: 8.0}</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="main.print_result">
+<span class="sig-prename descclassname"><span class="pre">main.</span></span><span class="sig-name descname"><span class="pre">print_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">previous_nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortest_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.print_result" title="Link permanente para esta definição"></a></dt>
+<dd><p>Receberá dois dicts retornados pela função dijkstra, bem como os nomes dos nós inicial e destino.         A função usará os dois dicts para encontrar o melhor caminho e calcular a pontuação total do caminho.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>previous_nodes</strong> – (dict)</p></li>
+<li><p><strong>shortest_path</strong> – (dict)</p></li>
+<li><p><strong>start_node</strong> – (str)</p></li>
+<li><p><strong>target_node</strong> – (str)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Rodapé">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Mesh-Network-Dijkstra" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gabriel Mesquita.</p>
+  </div>
+
+  Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
